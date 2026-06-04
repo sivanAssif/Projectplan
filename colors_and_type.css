@@ -1,0 +1,136 @@
+/* ╔══════════════════════════════════════════════════════╗
+   ║  TravelBooster Design Tokens — colors_and_type.css  ║
+   ║  Usage: var(--tb-*)                                  ║
+   ╚══════════════════════════════════════════════════════╝ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap');
+
+:root {
+
+  /* ── Brand Purple ─────────────────────────────────── */
+  --tb-purple-50:  #F5F3FF;
+  --tb-purple-100: #EDE9FE;
+  --tb-purple-200: #DDD6FE;
+  --tb-purple-300: #C4B5FD;
+  --tb-purple-400: #A78BFA;
+  --tb-purple-500: #8B4CF7;
+  --tb-purple-600: #6F28F0;   /* ← Primary brand */
+  --tb-purple-700: #5B1ED6;
+  --tb-purple-800: #4A15B5;
+  --tb-purple-900: #3A0E8F;
+  --tb-purple-950: #1E0650;
+
+  /* ── Palm Neutrals (purple-grey scale) ───────────── */
+  --tb-palm-50:  #F8F5FD;
+  --tb-palm-100: #F0EBF9;
+  --tb-palm-200: #E2D9F3;
+  --tb-palm-300: #C7B5E4;
+  --tb-palm-400: #A994D0;
+  --tb-palm-500: #8B74B8;
+  --tb-palm-600: #6E5899;
+  --tb-palm-700: #55407A;
+  --tb-palm-800: #3D2A5C;
+  --tb-palm-900: #261A38;
+  --tb-palm-950: #1A1225;
+
+  /* ── Lilac (Q3 agent accent) ─────────────────────── */
+  --tb-lilac-50:  #FAF5FF;
+  --tb-lilac-100: #F3E8FF;
+  --tb-lilac-200: #E9D5FF;
+  --tb-lilac-500: #A855F7;
+  --tb-lilac-600: #9333EA;
+  --tb-lilac-700: #7E22CE;
+
+  /* ── Semantic — Green ────────────────────────────── */
+  --tb-green-50:  #F0FDF4;
+  --tb-green-100: #D1FAE5;
+  --tb-green-500: #10B981;
+  --tb-green-600: #059669;
+  --tb-green-700: #047857;
+
+  /* ── Semantic — Red ──────────────────────────────── */
+  --tb-red-50:  #FFF5F5;
+  --tb-red-100: #FEE2E2;
+  --tb-red-500: #EF4444;
+  --tb-red-600: #DC2626;
+  --tb-red-700: #B91C1C;
+
+  /* ── Semantic — Orange (Q4 accent + warning) ─────── */
+  --tb-orange-50:  #FFFBEB;
+  --tb-orange-100: #FEF3C7;
+  --tb-orange-300: #FCD34D;
+  --tb-orange-500: #F59E0B;
+  --tb-orange-600: #D97706;
+  --tb-orange-700: #B45309;
+
+  /* ── Surfaces ────────────────────────────────────── */
+  --tb-bg:      #F8F5FD;
+  --tb-surface: #FFFFFF;
+  --tb-border:  var(--tb-palm-200);
+
+  /* ── Typography ──────────────────────────────────── */
+  --tb-font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --tb-font-he: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+
+  --tb-text-2xs:  0.6875rem;   /*  11px */
+  --tb-text-xs:   0.75rem;     /*  12px */
+  --tb-text-sm:   0.875rem;    /*  14px */
+  --tb-text-base: 1rem;        /*  16px */
+  --tb-text-lg:   1.125rem;    /*  18px */
+  --tb-text-xl:   1.25rem;     /*  20px */
+  --tb-text-2xl:  1.5rem;      /*  24px */
+  --tb-text-3xl:  1.875rem;    /*  30px */
+  --tb-text-4xl:  2.25rem;     /*  36px */
+  --tb-text-5xl:  3rem;        /*  48px */
+
+  --tb-leading-tight:   1.25;
+  --tb-leading-snug:    1.375;
+  --tb-leading-normal:  1.5;
+  --tb-leading-relaxed: 1.65;
+
+  /* ── Spacing — 4 pt grid ─────────────────────────── */
+  --tb-s-1:  4px;
+  --tb-s-2:  8px;
+  --tb-s-3:  12px;
+  --tb-s-4:  16px;
+  --tb-s-5:  20px;
+  --tb-s-6:  24px;
+  --tb-s-7:  28px;
+  --tb-s-8:  32px;
+  --tb-s-10: 40px;
+  --tb-s-12: 48px;
+  --tb-s-16: 64px;
+  --tb-s-20: 80px;
+  --tb-s-24: 96px;
+
+  /* ── Radii ───────────────────────────────────────── */
+  --tb-r-sm:   4px;
+  --tb-r-md:   8px;
+  --tb-r-lg:   12px;
+  --tb-r-xl:   16px;
+  --tb-r-2xl:  24px;
+  --tb-r-pill: 999px;
+
+  /* ── Shadows — Purple Ink ────────────────────────── */
+  --tb-shadow-xs: 0 1px 2px rgba(111,40,240,0.06);
+  --tb-shadow-sm: 0 1px 4px rgba(111,40,240,0.08),
+                  0 1px 2px rgba(111,40,240,0.04);
+  --tb-shadow-md: 0 4px 12px rgba(111,40,240,0.10),
+                  0 2px 4px  rgba(111,40,240,0.06);
+  --tb-shadow-lg: 0 8px 24px rgba(111,40,240,0.12),
+                  0 4px 8px  rgba(111,40,240,0.06);
+  --tb-shadow-xl: 0 16px 40px rgba(111,40,240,0.14),
+                  0 8px  16px rgba(111,40,240,0.08);
+
+  /* ── Extra semantic ─────────────────────────────── */
+  --tb-blue-100: #E0F2FE;
+  --tb-blue-500: #0EA5E9;
+  --tb-blue-600: #0284C7;
+  --tb-emerald-100: #CCFBF1;
+  --tb-emerald-600: #059669;
+  --tb-emerald-700: #0F766E;
+
+  /* ── Motion ──────────────────────────────────────── */
+  --tb-ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --tb-transition: 150ms var(--tb-ease);
+}

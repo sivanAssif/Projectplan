@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>פלטפורמת סוכני AI | ERP | TravelBooster</title>
+  <link rel="stylesheet" href="assets/colors_and_type.css">
+  <link rel="stylesheet" href="assets/plan.css">
+</head>
+<body>
+
+<!-- SVG SPRITE ─────────────────────────────────────── -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ic-filter" viewBox="0 0 24 24" fill="none">
+    <path d="M22 3H2l8 9.46V19l4 2V12.46L22 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-bug" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="13" r="4" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M12 9V5M9.5 9.5 7 7M14.5 9.5 17 7M8 13H4M20 13h-4M9 16.5 6 18.5M15 16.5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-message" viewBox="0 0 24 24" fill="none">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-graduate" viewBox="0 0 24 24" fill="none">
+    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-file-text" viewBox="0 0 24 24" fill="none">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-code" viewBox="0 0 24 24" fill="none">
+    <polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-database" viewBox="0 0 24 24" fill="none">
+    <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" stroke="currentColor" stroke-width="1.6"/>
+  </symbol>
+  <symbol id="ic-cpu" viewBox="0 0 24 24" fill="none">
+    <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/>
+    <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-git" viewBox="0 0 24 24" fill="none">
+    <line x1="6" y1="3" x2="6" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M18 9a9 9 0 0 1-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-check-circle" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+    <polyline points="9 12 11 14 15 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-x-circle" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-arrow-right" viewBox="0 0 24 24" fill="none">
+    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-users" viewBox="0 0 24 24" fill="none">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-bar-chart" viewBox="0 0 24 24" fill="none">
+    <line x1="12" y1="20" x2="12" y2="10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="18" y1="20" x2="18" y2="4"  stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="6"  y1="20" x2="6"  y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-alert" viewBox="0 0 24 24" fill="none">
+    <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="12" y1="9"     x2="12"    y2="13"   stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="12" y1="17"    x2="12.01" y2="17"   stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-traffic" viewBox="0 0 24 24" fill="none">
+    <rect x="7" y="2" width="10" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="7"  r="2" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="17" r="2" stroke="currentColor" stroke-width="1.6"/>
+  </symbol>
+  <symbol id="ic-flag" viewBox="0 0 24 24" fill="none">
+    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="4" y1="22" x2="4" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-zap" viewBox="0 0 24 24" fill="none">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+    <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+
+<!-- ════════════════════════════════════════════════════
+     1. HERO
+════════════════════════════════════════════════════ -->
+<header class="tb-hero" role="banner">
+  <div class="tb-container tb-hero__inner">
+
+    <div class="tb-hero__logo">
+      <div class="tb-hero__logo-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                   stroke="#fff" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="tb-hero__logo-text" aria-label="TravelBooster">Travel<span>Booster</span></span>
+    </div>
+
+    <p class="tb-hero__eyebrow">תוכנית פרויקט &middot; Q3–Q4 2026</p>
+
+    <h1 class="tb-hero__title">
+      פלטפורמת <em>סוכני AI</em><br>על גבי מערכת ה-ERP
+    </h1>
+
+    <p class="tb-hero__subtitle">
+      בניית מערכת של שישה סוכנים אינטליגנטים שמשנה את אופן התמיכה, ההדרכה ופיתוח הפיצ'רים — מקצה לקצה.
+    </p>
+
+    <div class="tb-hero__meta" role="list">
+      <div class="tb-hero__meta-item" role="listitem">
+        <span class="tb-hero__meta-label">צוות</span>
+        <span class="tb-hero__meta-value">סיון + Data Person</span>
+      </div>
+      <div class="tb-hero__meta-item" role="listitem">
+        <span class="tb-hero__meta-label">טווח זמן</span>
+        <span class="tb-hero__meta-value">Q3–Q4 2026 &middot; 4 חודשים</span>
+      </div>
+      <div class="tb-hero__meta-item" role="listitem">
+        <span class="tb-hero__meta-label">מערכת</span>
+        <span class="tb-hero__meta-value">ERP פיתוח עצמי, 30+ שנה</span>
+      </div>
+      <div class="tb-hero__meta-item" role="listitem">
+        <span class="tb-hero__meta-label">תשתית</span>
+        <span class="tb-hero__meta-value">Azure Cloud &middot; Azure DevOps &middot; Claude API</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+<main id="main-content">
+
+<!-- ════════════════════════════════════════════════════
+     2. מטרת הפרויקט  —  גריד 3 עמודות
+     כרטיס: רצועת כותרת (אייקון + כותרת + מספר) + תיאור מתחת
+════════════════════════════════════════════════════ -->
+<section class="tb-section tb-section--alt" id="vision" aria-labelledby="vision-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">מטרת הפרויקט</p>
+    <h2 class="tb-section-title" id="vision-h">שישה סוכנים — מערכת אחת</h2>
+
+    <div class="tb-agent-grid" role="list">
+
+      <!-- 01 Q3 -->
+      <article class="tb-agent-card tb-agent-card--q3" role="listitem">
+        <div class="tb-agent-header">
+          <div class="tb-agent-header-start">
+            <div class="tb-agent-icon-wrap" aria-hidden="true">
+              <svg class="tb-icon" width="18" height="18"><use href="#ic-filter"/></svg>
+            </div>
+            <h3 class="tb-agent-title">סיווג קריאות</h3>
+          </div>
+          <span class="tb-agent-number" aria-label="סוכן מספר 1">01</span>
+        </div>
+        <div class="tb-agent-body">
+          <p class="tb-agent-desc">כל קריאת שירות שנפתחת עוברת אוטומטית דרך הסוכן שמחליט: באג במערכת, או שאלת שימוש שדורשת הדרכה? הניתוב הנכון מגיע תוך שניות.</p>
+          <span class="tb-agent-quarter">Q3 &middot; יוני–אוגוסט</span>
+        </div>
+      </article>
+
+      <!-- 02 Q3 -->
+      <article class="tb-agent-card tb-agent-card--q3" role="listitem">
+        <div class="tb-agent-header">
+          <div class="tb-agent-header-start">
+            <div class="tb-agent-icon-wrap" aria-hidden="true">
+              <svg class="tb-icon" width="18" height="18"><use href="#ic-bug"/></svg>
+            </div>
+            <h3 class="tb-agent-title">חקירת באגים</h3>
+          </div>
+          <span class="tb-agent-number" aria-label="סוכן מספר 2">02</span>
+        </div>
+        <div class="tb-agent-body">
+          <p class="tb-agent-desc">קריאות שמסווגות כבאג נשלחות לסוכן שחוקר את הקוד לעומק — מאתר את שורש הבעיה, מייצר דוח תחקיר, ומציע תיקון. מה שלקח יום — יקח 30 דקות.</p>
+          <span class="tb-agent-quarter">Q3 &middot; יוני–אוגוסט</span>
+        </div>
+      </article>
+
+      <!-- 03 Q3 -->
+      <article class="tb-agent-card tb-agent-card--q3" role="listitem">
+        <div class="tb-agent-header">
+          <div class="tb-agent-header-start">
+            <div class="tb-agent-icon-wrap" aria-hidden="true">
+              <svg class="tb-icon" width="18" height="18"><use href="#ic-message"/></svg>
+            </div>
+            <h3 class="tb-agent-title">מענה ותמיכה</h3>
+          </div>
+          <span class="tb-agent-number" aria-label="סוכן מספר 3">03</span>
+        </div>
+        <div class="tb-agent-body">
+          <p class="tb-agent-desc">שאלות שימוש מקבלות תשובה מפורטת ומדויקת מתוך בסיס הידע — ללא עיכוב, ללא צורך בנציג אנושי לכל שאלה. הלקוח מקבל תשובה תוך דקות.</p>
+          <span class="tb-agent-quarter">Q3 &middot; יוני–אוגוסט</span>
+        </div>
+      </article>
+
+      <!-- 04 Q3 -->
+      <article class="tb-agent-card tb-agent-card--q3" role="listitem">
+        <div class="tb-agent-header">
+          <div class="tb-agent-header-start">
+            <div class="tb-agent-icon-wrap" aria-hidden="true">
+              <svg class="tb-icon" width="18" height="18"><use href="#ic-graduate"/></svg>
+            </div>
+            <h3 class="tb-agent-title">הכשרת עובדים</h3>
+          </div>
+          <span class="tb-agent-number" aria-label="סוכן מספר 4">04</span>
+        </div>
+        <div class="tb-agent-body">
+          <p class="tb-agent-desc">מדריך אינטראקטיבי לעובדים חדשים וקיימים שמכיר את המערכת לעומק. שואלים, ומקבלים תשובה מהקוד עצמו. זמן ההכשרה יורד מ-3 שבועות לשבוע.</p>
+          <span class="tb-agent-quarter">Q3 &middot; יוני–אוגוסט</span>
+        </div>
+      </article>
+
+      <!-- 05 Q4 -->
+      <article class="tb-agent-card tb-agent-card--q4" role="listitem">
+        <div class="tb-agent-header">
+          <div class="tb-agent-header-start">
+            <div class="tb-agent-icon-wrap" aria-hidden="true">
+              <svg class="tb-icon" width="18" height="18"><use href="#ic-file-text"/></svg>
+            </div>
+            <h3 class="tb-agent-title">מאפיין שינויים</h3>
+          </div>
+          <span class="tb-agent-number" aria-label="סוכן מספר 5">05</span>
+        </div>
+        <div class="tb-agent-body">
+          <p class="tb-agent-desc">מקבל בקשת שינוי, חוקר את הקוד הרלוונטי, ומייצר אוטומטית מסמך אפיון מלא — כולל השפעה על מודולים קיימים, סיכונים, ואומדן פיתוח. ימים הופכים לשעות.</p>
+          <span class="tb-agent-quarter">Q4 &middot; ספטמבר–אוקטובר</span>
+        </div>
+      </article>
+
+      <!-- 06 Q4 -->
+      <article class="tb-agent-card tb-agent-card--q4" role="listitem">
+        <div class="tb-agent-header">
+          <div class="tb-agent-header-start">
+            <div class="tb-agent-icon-wrap" aria-hidden="true">
+              <svg class="tb-icon" width="18" height="18"><use href="#ic-code"/></svg>
+            </div>
+            <h3 class="tb-agent-title">פיתוח שינויים</h3>
+          </div>
+          <span class="tb-agent-number" aria-label="סוכן מספר 6">06</span>
+        </div>
+        <div class="tb-agent-body">
+          <p class="tb-agent-desc">מבוסס על מסמך האפיון — כותב את הקוד, מייצר PR ב-Azure Repos, ומריץ בדיקות ראשוניות. הסוכן עובד בפיקוח מפתח אנושי. מאיץ פיתוח ומפחית טעויות.</p>
+          <span class="tb-agent-quarter">Q4 &middot; ספטמבר–אוקטובר</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     3. ארכיטקטורה
+     RTL flex: מקורות (ראשון ב-DOM) → ימין, סוכנים → שמאל
+════════════════════════════════════════════════════ -->
+<section class="tb-section tb-section--alt" id="arch" aria-labelledby="arch-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">ארכיטקטורה</p>
+    <h2 class="tb-section-title" id="arch-h">איך זה עובד — מקצה לקצה</h2>
+
+    <div class="tb-arch-panel" role="img" aria-label="דיאגרמת זרימה: מקורות נתונים, שכבת AI, סוכנים">
+
+      <!-- RTL flex → Sources on RIGHT, Agents on LEFT -->
+      <div class="tb-arch-flow">
+
+        <!-- Column A: מקורות נתונים (ימין ב-RTL) -->
+        <div class="tb-arch-col">
+          <p class="tb-arch-col-label">מקורות נתונים</p>
+          <div class="tb-arch-box tb-arch-box--purple">
+            <svg class="tb-icon" width="14" height="14" aria-hidden="true"><use href="#ic-code"/></svg>
+            קוד מקור ERP
+          </div>
+          <div class="tb-arch-box tb-arch-box--blue">
+            <svg class="tb-icon" width="14" height="14" aria-hidden="true"><use href="#ic-file-text"/></svg>
+            מסמכים ומדריכים
+          </div>
+          <div class="tb-arch-box tb-arch-box--devops">
+            <svg class="tb-icon" width="14" height="14" aria-hidden="true"><use href="#ic-git"/></svg>
+            תקלות ובקשות (Azure DevOps)
+          </div>
+        </div>
+
+        <!-- Arrow 1 -->
+        <div class="tb-arch-arrow" aria-hidden="true">
+          <svg class="tb-icon" width="22" height="22"><use href="#ic-arrow-right"/></svg>
+        </div>
+
+        <!-- Column B: שכבת AI -->
+        <div class="tb-arch-col">
+          <p class="tb-arch-col-label">שכבת AI</p>
+          <div class="tb-arch-box tb-arch-box--teal">
+            <svg class="tb-icon" width="14" height="14" aria-hidden="true"><use href="#ic-database"/></svg>
+            Vector DB &middot; בסיס ידע
+          </div>
+          <div class="tb-arch-box tb-arch-box--amber" style="margin-top:var(--tb-s-3)">
+            <svg class="tb-icon" width="14" height="14" aria-hidden="true"><use href="#ic-cpu"/></svg>
+            Claude API &middot; Sonnet
+          </div>
+        </div>
+
+        <!-- Arrow 2 -->
+        <div class="tb-arch-arrow" aria-hidden="true">
+          <svg class="tb-icon" width="22" height="22"><use href="#ic-arrow-right"/></svg>
+        </div>
+
+        <!-- Column C: סוכנים (שמאל ב-RTL) -->
+        <div class="tb-arch-col">
+          <p class="tb-arch-col-label">סוכנים</p>
+          <div class="tb-arch-box tb-arch-box--lilac">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-filter"/></svg>
+            סיווג קריאות
+          </div>
+          <div class="tb-arch-box tb-arch-box--lilac">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-bug"/></svg>
+            חקירת באגים
+          </div>
+          <div class="tb-arch-box tb-arch-box--lilac">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-message"/></svg>
+            מענה ותמיכה
+          </div>
+          <div class="tb-arch-box tb-arch-box--lilac">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-graduate"/></svg>
+            הכשרת עובדים
+          </div>
+          <div class="tb-arch-box tb-arch-box--orange">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-file-text"/></svg>
+            מאפיין שינויים
+          </div>
+          <div class="tb-arch-box tb-arch-box--orange">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-code"/></svg>
+            פיתוח שינויים
+          </div>
+        </div>
+
+      </div><!-- /tb-arch-flow -->
+
+      <!-- Outputs -->
+      <div class="tb-arch-outputs">
+        <div class="tb-arch-output-item">
+          <svg class="tb-icon" width="15" height="15" aria-hidden="true"><use href="#ic-message"/></svg>
+          תשובות אוטומטיות ללקוחות
+        </div>
+        <div class="tb-arch-output-item">
+          <svg class="tb-icon" width="15" height="15" aria-hidden="true"><use href="#ic-alert"/></svg>
+          דוחות תחקיר באגים
+        </div>
+        <div class="tb-arch-output-item">
+          <svg class="tb-icon" width="15" height="15" aria-hidden="true"><use href="#ic-graduate"/></svg>
+          הדרכות אינטראקטיביות
+        </div>
+        <div class="tb-arch-output-item">
+          <svg class="tb-icon" width="15" height="15" aria-hidden="true"><use href="#ic-file-text"/></svg>
+          מסמך אפיון אוטומטי — 2–3 שעות
+        </div>
+        <div class="tb-arch-output-item">
+          <svg class="tb-icon" width="15" height="15" aria-hidden="true"><use href="#ic-git"/></svg>
+          קוד + PR ב-Azure Repos
+        </div>
+        <div class="tb-arch-output-item">
+          <svg class="tb-icon" width="15" height="15" aria-hidden="true"><use href="#ic-bar-chart"/></svg>
+          לוח בקרה + KPIs בזמן אמת
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     4. לוח זמנים
+════════════════════════════════════════════════════ -->
+<section class="tb-section tb-section--alt" id="timeline" aria-labelledby="timeline-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">לו"ז</p>
+    <h2 class="tb-section-title" id="timeline-h">תוכנית עבודה — Q3 + Q4 2026</h2>
+
+    <!-- Q3 -->
+    <div class="tb-phase-divider" role="separator" aria-label="שלב Q3">
+      <div class="tb-phase-divider-line" aria-hidden="true"></div>
+      <span class="tb-phase-chip tb-phase-chip--q3">Q3 — סוכני תמיכה והדרכה &middot; יוני–אוגוסט</span>
+      <div class="tb-phase-divider-line" aria-hidden="true"></div>
+    </div>
+
+    <div role="list">
+
+      <!-- Month 1 -->
+      <div class="tb-timeline-item" role="listitem">
+        <div>
+          <span class="tb-month-badge tb-month-badge--1">חודש 1</span>
+          <p class="tb-month-sub">יוני 2026</p>
+        </div>
+        <div>
+          <div class="tb-task-grid">
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--lilac">שבועות 1–2 &mdash; מיפוי הקוד</div>
+              <ul class="tb-task-list">
+                <li>זיהוי כל המודולים ב-ERP</li>
+                <li>תיעוד ארכיטקטורה ותלויות</li>
+                <li>הגדרת Scope: איזה מודול ראשון</li>
+                <li>הקמת dev environment + Claude API</li>
+              </ul>
+            </div>
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--purple">שבועות 3–4 &mdash; בסיס ידע</div>
+              <ul class="tb-task-list">
+                <li>אינדוקס קוד עם tree-sitter</li>
+                <li>Embeddings על קוד + מסמכים</li>
+                <li>בניית Vector DB (pgvector / Pinecone)</li>
+                <li>בדיקות איכות semantic search</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tb-milestone tb-milestone--amber">
+            <svg class="tb-icon" width="15" height="15" style="flex-shrink:0;margin-top:1px" aria-hidden="true"><use href="#ic-flag"/></svg>
+            <span>מטרת החודש: RAG עובד — שאילתות על קוד מחזירות תוצאות רלוונטיות</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 2 -->
+      <div class="tb-timeline-item" role="listitem">
+        <div>
+          <span class="tb-month-badge tb-month-badge--2">חודש 2</span>
+          <p class="tb-month-sub">יולי 2026</p>
+        </div>
+        <div>
+          <div class="tb-task-grid">
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--lilac">שבועות 5–6 &mdash; סוכן סיווג</div>
+              <ul class="tb-task-list">
+                <li>חיבור ל-Azure DevOps API (Work Items)</li>
+                <li>אימון classifier: באג vs. הדרכה</li>
+                <li>ניתוב קריאות לסוכן המתאים</li>
+                <li>לוח בקרה לניטור סיווגים</li>
+              </ul>
+            </div>
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--purple">שבועות 7–8 &mdash; סוכני חקירה ומענה</div>
+              <ul class="tb-task-list">
+                <li>סוכן באגים: RAG על קוד + log analysis</li>
+                <li>יצירת דוח תחקיר אוטומטי</li>
+                <li>סוכן מענה: חיפוש ב-KB + ניסוח תשובה</li>
+                <li>בדיקה עם 20 קריאות היסטוריות</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tb-milestone tb-milestone--purple">
+            <svg class="tb-icon" width="15" height="15" style="flex-shrink:0;margin-top:1px" aria-hidden="true"><use href="#ic-flag"/></svg>
+            <span>מטרת החודש: 3 סוכנים עובדים ב-Staging, דיוק סיווג &gt; 85%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 3 -->
+      <div class="tb-timeline-item" role="listitem">
+        <div>
+          <span class="tb-month-badge tb-month-badge--3">חודש 3</span>
+          <p class="tb-month-sub">אוגוסט 2026</p>
+        </div>
+        <div>
+          <div class="tb-task-grid">
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--orange">שבועות 9–10 &mdash; הכשרת עובדים</div>
+              <ul class="tb-task-list">
+                <li>בניית תוכן הדרכה מקוד + מסמכים</li>
+                <li>ממשק Q&amp;A לעובדים חדשים</li>
+                <li>בדיקות עם 3 עובדים</li>
+                <li>כיול תשובות לפי פידבק</li>
+              </ul>
+            </div>
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--green">שבועות 11–12 &mdash; Go-Live (4 סוכנים)</div>
+              <ul class="tb-task-list">
+                <li>השקה ב-Production (טייס מצומצם)</li>
+                <li>לוח בקרה: KPIs בזמן אמת</li>
+                <li>ריאיון משתמשים + תיקונים</li>
+                <li>הכנת תשתית לסוכני הפיתוח</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tb-milestone tb-milestone--green">
+            <svg class="tb-icon" width="15" height="15" style="flex-shrink:0;margin-top:1px" aria-hidden="true"><use href="#ic-flag"/></svg>
+            <span>מטרת החודש: 4 סוכנים בפרודקשן, KPIs ירוקים, תשתית מוכנה לסוכני הפיתוח</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /Q3 list -->
+
+    <!-- Go/No-Go Checkpoint -->
+    <div class="tb-gng-checkpoint" role="note" aria-label="נקודת החלטה Go/No-Go">
+      <div class="tb-gng-checkpoint-title">
+        <svg class="tb-icon" width="18" height="18" aria-hidden="true"><use href="#ic-traffic"/></svg>
+        נקודת Go / No-Go — סוף ספטמבר 2026
+      </div>
+      <div class="tb-gng-checkpoint-grid">
+        <div>
+          <p class="tb-gng-checkpoint-col-title tb-gng-checkpoint-col-title--go">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+            ממשיכים ל-Q4 אם:
+          </p>
+          <ul>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-green-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+              דיוק סיווג קריאות &gt; 85% בפרודקשן
+            </li>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-green-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+              זמן מענה ממוצע &lt; 4 שעות
+            </li>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-green-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+              שביעות רצון עובדים / לקוחות &gt; 70%
+            </li>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-green-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+              תשתית RAG יציבה, אין חוב טכני
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="tb-gng-checkpoint-col-title tb-gng-checkpoint-col-title--nogo">
+            <svg class="tb-icon" width="13" height="13" aria-hidden="true"><use href="#ic-x-circle"/></svg>
+            עוצרים ומייצבים אם:
+          </p>
+          <ul>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-red-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg>
+              דיוק נמוך מ-85% — חוזרים לשפר RAG
+            </li>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-red-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg>
+              קיים incident של תשובה שגויה חמורה
+            </li>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-red-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg>
+              משוב שלילי מהשטח שלא טופל
+            </li>
+            <li>
+              <svg class="tb-icon" width="12" height="12" style="color:var(--tb-red-600);flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg>
+              scope Q3 לא הושלם במלואו
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="tb-phase-divider" role="separator" aria-label="שלב Q4">
+      <div class="tb-phase-divider-line" aria-hidden="true"></div>
+      <span class="tb-phase-chip tb-phase-chip--q4">Q4 — סוכני אפיון ופיתוח &middot; ספטמבר–אוקטובר</span>
+      <div class="tb-phase-divider-line" aria-hidden="true"></div>
+    </div>
+
+    <div role="list">
+
+      <!-- Month 4 -->
+      <div class="tb-timeline-item" role="listitem">
+        <div>
+          <span class="tb-month-badge tb-month-badge--4">חודש 4</span>
+          <p class="tb-month-sub">ספטמבר 2026</p>
+        </div>
+        <div>
+          <div class="tb-task-grid">
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--emerald">שבועות 13–14 &mdash; סוכן מאפיין שינויים</div>
+              <ul class="tb-task-list">
+                <li>ניתוח בקשת שינוי מול קוד קיים (RAG)</li>
+                <li>זיהוי מודולים מושפעים ותלויות</li>
+                <li>יצירת מסמך אפיון טכני אוטומטי</li>
+                <li>אומדן זמן פיתוח + רשימת סיכונים</li>
+                <li>בדיקה עם 5 בקשות שינוי אמיתיות</li>
+              </ul>
+            </div>
+            <div class="tb-task-card">
+              <div class="tb-task-card-header tb-task-card-header--green">שבועות 15–16 &mdash; סוכן פיתוח שינויים</div>
+              <ul class="tb-task-list">
+                <li>קריאת מסמך האפיון + יצירת קוד</li>
+                <li>כתיבת unit tests בסיסיים</li>
+                <li>פתיחת PR ב-Azure Repos + תיעוד</li>
+                <li>Human-in-the-loop: מפתח מאשר לפני merge</li>
+                <li>בדיקה עם 3 שינויים real-world</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tb-milestone tb-milestone--emerald">
+            <svg class="tb-icon" width="15" height="15" style="flex-shrink:0;margin-top:1px" aria-hidden="true"><use href="#ic-flag"/></svg>
+            <span>מטרת החודש: שרשרת שלמה — בקשת שינוי &rarr; אפיון אוטומטי &rarr; קוד &rarr; PR. מפתח אנושי רק מאשר.</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /Q4 list -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     5. צוות
+════════════════════════════════════════════════════ -->
+<section class="tb-section" id="team" aria-labelledby="team-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">צוות</p>
+    <h2 class="tb-section-title" id="team-h">חלוקת אחריות</h2>
+
+    <div class="tb-team-grid">
+
+      <article class="tb-team-card">
+        <div class="tb-team-header tb-team-header--purple">
+          <div class="tb-team-avatar" aria-hidden="true">
+            <svg class="tb-icon" width="24" height="24"><use href="#ic-users"/></svg>
+          </div>
+          <h3 class="tb-team-name">סיון</h3>
+          <p class="tb-team-role">סמנכ"לית תפעול — מוביל הפרויקט</p>
+        </div>
+        <div class="tb-team-body">
+          <ul class="tb-team-resp">
+            <li><span class="tb-team-dot tb-team-dot--purple" aria-hidden="true"></span>הגדרת דרישות עסקיות לכל סוכן</li>
+            <li><span class="tb-team-dot tb-team-dot--purple" aria-hidden="true"></span>תיאום מול לקוחות ועובדים לבדיקות</li>
+            <li><span class="tb-team-dot tb-team-dot--purple" aria-hidden="true"></span>אישור תוכן, עדיפויות ו-scope</li>
+            <li><span class="tb-team-dot tb-team-dot--purple" aria-hidden="true"></span>ניהול ציפיות ו-stakeholders</li>
+            <li><span class="tb-team-dot tb-team-dot--purple" aria-hidden="true"></span>קבלת החלטות כשיש מחלוקת</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tb-team-card">
+        <div class="tb-team-header tb-team-header--teal">
+          <div class="tb-team-avatar" aria-hidden="true">
+            <svg class="tb-icon" width="24" height="24"><use href="#ic-cpu"/></svg>
+          </div>
+          <h3 class="tb-team-name">Data Person</h3>
+          <p class="tb-team-role">Lead Developer &amp; Data Engineer</p>
+        </div>
+        <div class="tb-team-body">
+          <ul class="tb-team-resp">
+            <li><span class="tb-team-dot tb-team-dot--teal" aria-hidden="true"></span>הקמת תשתית: Vector DB, Claude API</li>
+            <li><span class="tb-team-dot tb-team-dot--teal" aria-hidden="true"></span>אינדוקס ו-embedding של קוד ומסמכים</li>
+            <li><span class="tb-team-dot tb-team-dot--teal" aria-hidden="true"></span>פיתוח הסוכנים (Claude Agent SDK)</li>
+            <li><span class="tb-team-dot tb-team-dot--teal" aria-hidden="true"></span>חיבור ל-Azure DevOps API (Work Items)</li>
+            <li><span class="tb-team-dot tb-team-dot--teal" aria-hidden="true"></span>ניטור, מדידה ו-KPI dashboard</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="tb-team-note">
+      <svg class="tb-icon" width="16" height="16" style="flex-shrink:0;margin-top:1px" aria-hidden="true"><use href="#ic-alert"/></svg>
+      צוות של 2 = scope מצומצם ומוגדר היטב. לא מוסיפים דרישות באמצע. כל חודש עם deliverable ברור.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     6. KPIs
+════════════════════════════════════════════════════ -->
+<section class="tb-section tb-section--alt" id="kpis" aria-labelledby="kpis-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">מדדי הצלחה</p>
+    <h2 class="tb-section-title" id="kpis-h">KPIs — איך נדע שהצלחנו</h2>
+
+    <table class="tb-kpi-table" aria-label="מדדי הצלחה">
+      <thead>
+        <tr>
+          <th scope="col">שיפור</th>
+          <th scope="col">מדד</th>
+          <th scope="col">לפני &rarr; אחרי</th>
+          <th scope="col">הערה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--teal">96%</span></td>
+          <td><p class="tb-kpi-metric">זמן מענה לקריאה</p></td>
+          <td><p class="tb-kpi-flow">48 שעות <strong>2 שעות</strong></p></td>
+          <td><p class="tb-kpi-note">SLA חדש לכל הלקוחות</p></td>
+        </tr>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--teal">אוטומטי</span></td>
+          <td><p class="tb-kpi-metric">דיוק סיווג קריאות</p></td>
+          <td><p class="tb-kpi-flow">ידני <strong>&gt; 90%</strong></p></td>
+          <td><p class="tb-kpi-note">מדידה שבועית</p></td>
+        </tr>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--purple">93%</span></td>
+          <td><p class="tb-kpi-metric">זמן חקירת באג</p></td>
+          <td><p class="tb-kpi-flow">יום עבודה מלא <strong>30 דקות</strong></p></td>
+          <td><p class="tb-kpi-note">כולל דוח תחקיר</p></td>
+        </tr>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--orange">66%</span></td>
+          <td><p class="tb-kpi-metric">זמן הכשרת עובד חדש</p></td>
+          <td><p class="tb-kpi-flow">3 שבועות <strong>1 שבוע</strong></p></td>
+          <td><p class="tb-kpi-note">מדידה עם העובד הבא</p></td>
+        </tr>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--blue">NPS</span></td>
+          <td><p class="tb-kpi-metric">שביעות רצון לקוחות</p></td>
+          <td><p class="tb-kpi-flow">Baseline <strong>+30%</strong></p></td>
+          <td><p class="tb-kpi-note">סקר לקוחות בסוף Q3</p></td>
+        </tr>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--green">70%</span></td>
+          <td><p class="tb-kpi-metric">זמן כתיבת מסמך אפיון</p></td>
+          <td><p class="tb-kpi-flow">2–3 ימי עבודה <strong>2–3 שעות</strong></p></td>
+          <td><p class="tb-kpi-note">סוכן מאפיין שינויים</p></td>
+        </tr>
+        <tr class="tb-kpi-row">
+          <td><span class="tb-kpi-badge tb-kpi-badge--emerald">50%</span></td>
+          <td><p class="tb-kpi-metric">זמן פיתוח שינוי סטנדרטי</p></td>
+          <td><p class="tb-kpi-flow">שבוע פיתוח <strong>2–3 ימים</strong></p></td>
+          <td><p class="tb-kpi-note">סוכן פיתוח + Human review</p></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     7. סיכונים
+════════════════════════════════════════════════════ -->
+<section class="tb-section" id="risks" aria-labelledby="risks-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">סיכונים</p>
+    <h2 class="tb-section-title" id="risks-h">סיכונים ומיטיגציה</h2>
+
+    <table class="tb-risk-table" aria-label="טבלת סיכונים">
+      <thead>
+        <tr>
+          <th scope="col">חומרה</th>
+          <th scope="col">סיכון</th>
+          <th scope="col">השפעה</th>
+          <th scope="col">מיטיגציה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--high">גבוה</span></td>
+          <td><p class="tb-risk-title">קוד ישן (30+ שנה) — לא מתועד</p><p class="tb-risk-prob">הסתברות: גבוהה</p></td>
+          <td class="tb-risk-impact">לוז חודש 1 מתארך.<br>RAG לא מחזיר תוצאות רלוונטיות.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> מיפוי ידני לפני כל אינדוקס<br><span class="tb-risk-ok">&#10003;</span> מתחילים ממודול אחד בלבד<br><span class="tb-risk-ok">&#10003;</span> שבוע buffer בלוז חודש 1</td>
+        </tr>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--high">גבוה</span></td>
+          <td><p class="tb-risk-title">צוות של 2 — bottleneck ו-burnout</p><p class="tb-risk-prob">הסתברות: בינונית–גבוהה</p></td>
+          <td class="tb-risk-impact">עיכוב בלוז.<br>איכות נמוכה בשלבים מאוחרים.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> scope קפוא לאחר Kickoff<br><span class="tb-risk-ok">&#10003;</span> תיעוד שוטף — אין ידע בראש אחד<br><span class="tb-risk-ok">&#10003;</span> Go/No-Go בסוף Q3 לפני Q4</td>
+        </tr>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--high">גבוה</span></td>
+          <td><p class="tb-risk-title">סוכן פיתוח — קוד שגוי ב-Production</p><p class="tb-risk-prob">הסתברות: גבוהה (ייחודי לסוכן 6)</p></td>
+          <td class="tb-risk-impact">באגים חדשים נכנסים למערכת.<br>אובדן אמון בפרויקט.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> Human-in-the-loop חובה — PR לא יאושר אוטומטית<br><span class="tb-risk-ok">&#10003;</span> Staging נפרדת לכל PR<br><span class="tb-risk-ok">&#10003;</span> רק שינויים קטנים בהתחלה</td>
+        </tr>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--medium">בינוני</span></td>
+          <td><p class="tb-risk-title">איכות RAG — הזיות ותשובות שגויות</p><p class="tb-risk-prob">הסתברות: בינונית</p></td>
+          <td class="tb-risk-impact">לקוחות מקבלים הנחיות שגויות.<br>ירידת אמון.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> Evaluation framework עם 20+ שאלות קבועות<br><span class="tb-risk-ok">&#10003;</span> לא עולים ל-Production לפני 85% דיוק<br><span class="tb-risk-ok">&#10003;</span> disclaimer בכל תשובה בשלב ראשון</td>
+        </tr>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--medium">בינוני</span></td>
+          <td><p class="tb-risk-title">אינטגרציה עם Azure DevOps — מורכבות API</p><p class="tb-risk-prob">הסתברות: בינונית</p></td>
+          <td class="tb-risk-impact">עיכוב בחיבור תקלות ובקשות לסוכנים.<br>לוז חודש 2 נדחה.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> Spike טכני בשבוע 4 לפני הפיתוח<br><span class="tb-risk-ok">&#10003;</span> בדיקת הרשאות ו-webhooks מוקדם<br><span class="tb-risk-ok">&#10003;</span> Plan B: קליטה ידנית זמנית</td>
+        </tr>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--medium">בינוני</span></td>
+          <td><p class="tb-risk-title">Scope creep — דרישות חדשות באמצע</p><p class="tb-risk-prob">הסתברות: גבוהה (ארגונית)</p></td>
+          <td class="tb-risk-impact">לוז מתפרק.<br>צוות עובד על דברים לא מתוכננים.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> Backlog נפרד — כל רעיון לרבעון הבא<br><span class="tb-risk-ok">&#10003;</span> רק סיון מאשרת תוספות לרבעון הנוכחי</td>
+        </tr>
+        <tr class="tb-risk-row">
+          <td><span class="tb-risk-level tb-risk-level--low">נמוך</span></td>
+          <td><p class="tb-risk-title">התנגדות עובדים / לקוחות לשימוש</p><p class="tb-risk-prob">הסתברות: נמוכה–בינונית</p></td>
+          <td class="tb-risk-impact">אימוץ נמוך.<br>KPIs לא משתפרים.</td>
+          <td class="tb-risk-mitigation"><span class="tb-risk-ok">&#10003;</span> מסגור: "עוזר לך" לא "מחליף אותך"<br><span class="tb-risk-ok">&#10003;</span> הדגמה חיה עם KPIs ברורים<br><span class="tb-risk-ok">&#10003;</span> 2–3 early adopters מוקדם</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     8. GO / NO-GO
+════════════════════════════════════════════════════ -->
+<section class="tb-section" id="gng" aria-labelledby="gng-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">Go / No-Go</p>
+    <h2 class="tb-section-title" id="gng-h">נקודת החלטה — סוף Q3</h2>
+
+    <p class="tb-gng-intro">
+      בסוף ספטמבר 2026, לפני שמתחילים לפתח את סוכני האפיון והפיתוח, עוצרים לרגע ובודקים: האם ה-4 הסוכנים הראשונים אכן מספקים ערך? רק אם התשובה חיובית — ממשיכים ל-Q4.
+    </p>
+
+    <div class="tb-gng-grid">
+
+      <div class="tb-gng-card tb-gng-card--go">
+        <div class="tb-gng-card-title">
+          <svg class="tb-icon" width="17" height="17" aria-hidden="true"><use href="#ic-check-circle"/></svg>
+          ממשיכים ל-Q4 אם כל התנאים מתקיימים
+        </div>
+        <ul class="tb-gng-criteria">
+          <li><svg class="tb-icon" width="13" height="13" style="color:#34D399;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg> דיוק סיווג קריאות — מעל 85% בפרודקשן</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#34D399;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg> לפחות 50 קריאות עברו דרך המערכת בהצלחה</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#34D399;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg> זמן מענה ממוצע ירד ל-4 שעות ומטה</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#34D399;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg> אפס incidents של תשובות מטעות חמורות</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#34D399;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg> שביעות רצון עובדים / לקוחות — מעל 70%</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#34D399;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-check-circle"/></svg> תשתית RAG יציבה, אין חוב טכני משמעותי</li>
+        </ul>
+      </div>
+
+      <div class="tb-gng-card tb-gng-card--nogo">
+        <div class="tb-gng-card-title">
+          <svg class="tb-icon" width="17" height="17" aria-hidden="true"><use href="#ic-x-circle"/></svg>
+          עוצרים ומייצבים אם
+        </div>
+        <ul class="tb-gng-criteria">
+          <li><svg class="tb-icon" width="13" height="13" style="color:#F87171;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg> דיוק נמוך מ-85% — חוזרים לשפר RAG לפני כל צעד הבא</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#F87171;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg> קיים incident פתוח של תשובה שגויה שגרמה נזק</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#F87171;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg> משוב שלילי משמעותי מהשטח שלא טופל</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#F87171;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg> חוב טכני גבוה שמסכן את יציבות Q4</li>
+          <li><svg class="tb-icon" width="13" height="13" style="color:#F87171;flex-shrink:0;margin-top:2px" aria-hidden="true"><use href="#ic-x-circle"/></svg> scope Q3 לא הושלם במלואו</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="tb-gng-note" role="note">
+      <svg class="tb-icon" width="16" height="16" style="flex-shrink:0;margin-top:1px;color:var(--tb-orange-600)" aria-hidden="true"><use href="#ic-alert"/></svg>
+      <span><strong>חשוב:</strong> "No-Go" אינו כישלון — זה ניהול פרויקט נכון. עצירה לייצוב אחרי Q3 עדיפה על פיתוח סוכן שכותב קוד על גבי תשתית לא בשלה. ה-Go/No-Go נקבע על ידי סיון לאחר ישיבת סקירה עם הנתונים.</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     9. צעדים ראשונים
+════════════════════════════════════════════════════ -->
+<section class="tb-section tb-section--alt" id="steps" aria-labelledby="steps-h">
+  <div class="tb-container">
+    <p class="tb-section-label" aria-hidden="true">עכשיו</p>
+    <h2 class="tb-section-title" id="steps-h">צעדים ראשונים — השבוע</h2>
+
+    <ol class="tb-steps-list">
+
+      <li class="tb-step">
+        <span class="tb-step-num" style="color:var(--tb-lilac-500)">01</span>
+        <div>
+          <p class="tb-step-title">גישה ל-repository</p>
+          <p class="tb-step-desc">לתת גישה לקוד. נתחיל מיפוי ארכיטקטורה ונחליט על מודול ראשון.</p>
+        </div>
+      </li>
+
+      <li class="tb-step">
+        <span class="tb-step-num" style="color:var(--tb-purple-400)">02</span>
+        <div>
+          <p class="tb-step-title">בחירת מודול ראשון</p>
+          <p class="tb-step-desc">להחליט: איזה מודול הכי נפוץ בתקלות ובקשות? שם נתחיל.</p>
+        </div>
+      </li>
+
+      <li class="tb-step">
+        <span class="tb-step-num" style="color:var(--tb-orange-400)">03</span>
+        <div>
+          <p class="tb-step-title">20 קריאות היסטוריות</p>
+          <p class="tb-step-desc">לאסוף מגוון תקלות ובקשות (באגים + שאלות) לצורך בדיקות ו-evaluation.</p>
+        </div>
+      </li>
+
+      <li class="tb-step">
+        <span class="tb-step-num" style="color:var(--tb-green-500)">04</span>
+        <div>
+          <p class="tb-step-title">Kickoff עם Data Person</p>
+          <p class="tb-step-desc">ישיבת kickoff להגדרת dev environment, Claude API, וסכמת ה-vector DB.</p>
+        </div>
+      </li>
+
+    </ol>
+
+    <p class="tb-steps-quote">
+      "בעוד 3 חודשים, כל קריאת שירות מקבלת מענה תוך שעות — לא ימים"
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="tb-footer" role="contentinfo">
+  ERP Agent Platform &nbsp;&middot;&nbsp; 6 סוכנים &nbsp;&middot;&nbsp; תוכנית פרויקט Q3–Q4 2026 &nbsp;&middot;&nbsp; סיון — סמנכ"לית תפעול &nbsp;&middot;&nbsp; TravelBooster
+</footer>
+
+</body>
+</html>
